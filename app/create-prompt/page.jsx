@@ -1,8 +1,8 @@
 "use client";
 import Form from '@components/Form'
-import React from 'react'
 import { useState } from 'react/'
 import { useRouter } from "next/navigation";
+import { useSession } from 'next-auth/react';
 
 
 const CreatePrompt = () => {
@@ -12,16 +12,18 @@ const CreatePrompt = () => {
         tag:'',
     })
     const router = useRouter();
-
-
+    const {data: session} = useSession();
+    
+    
     const createPrompt = async (e)=>{
-        e.preventDefautl();
+
+        e.preventDefault();
         setSubmitting(true);
         try {
             const reponse = await fetch('/api/prompt/new',{
                 method:'POST',
-                prompt: JSON.stringify({
-                    prompt: post.prompt,
+                body: JSON.stringify({
+                    prompt: post.prompt,  
                     userId: session?.user.id,
                     tag: post.tag
                 })

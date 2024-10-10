@@ -10,9 +10,17 @@ const nextConfig = {
       appDir: true,
       serverComponentsExternalPackages: ["mongoose"],
     },
-    images: {
-      domains: ['lh3.googleusercontent.com'],
-    },
+   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+
     webpack(config) {
       config.experiments = {
         ...config.experiments,
