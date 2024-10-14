@@ -3,7 +3,7 @@ import Provider from '@components/Provider';
 import '@styles/globals.css';
  
 export const metadata = {
-    title : 'Prompt Master',
+    title : 'My Prompt Master IA',
     description: "Save and share prompt for chatgtp"
 }
 const RootLayout = ( {children}) => {

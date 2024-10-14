@@ -20,14 +20,11 @@ const handler = NextAuth({
         },
     async signIn({profile}) {
       try {
-          console.log("signIN route ",profile); 
             await connectToDB()
-            // user existe yes ?
-            const UserExists = await User.findOne({
+             const UserExists = await User.findOne({
                 email: profile.email
             })
-            // user existe No ?
-            if(!UserExists){
+             if(!UserExists){
                 await User.create({
                     email:profile.email,
                     username: profile.name.replace(/\s+/g, '').toLowerCase(),
