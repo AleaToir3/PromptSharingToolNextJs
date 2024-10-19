@@ -15,9 +15,10 @@ const Feed = () => {
  const [searchText, setSearchText] = useState('');
  const [posts,setPosts] = useState([]);
 
- const handleSeachChange = (e)=>{
-
- }
+ const handleSearchChange = (e)=>{
+  setSearchText(e.target.value)
+  
+  }
  useEffect(()=>{
   const fetchPots = async()=>{
     const response = await fetch('/api/prompt');
@@ -33,7 +34,7 @@ const Feed = () => {
           type="text"
           placeholder="Search tag or user"
           value={searchText}
-          onChange={handleSeachChange}
+          onChange={handleSearchChange}
           required />
         </form>
         <PromptCardList data={posts} handleTagClick = {()=>{}} />

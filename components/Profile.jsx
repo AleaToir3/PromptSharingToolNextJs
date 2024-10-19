@@ -1,8 +1,6 @@
-import { ClientPageRoot } from "next/dist/client/components/client-page"
 import PromptCard from "./PromptCard"
 
- 
-const Profile = ({name,desc,data,handleEdite,handleDelete}) => {
+ const Profile = ({name,desc,data,handleEdite,handleDelete}) => {
    return (
     <section className="w-full"> 
     <h1 className="head_text  text-left">
